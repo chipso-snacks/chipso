@@ -594,12 +594,14 @@ window.addEventListener('DOMContentLoaded', () => {
         mainContent.style.filter = 'none';
     }, 2500); 
 });
-
-// --- QUANTITY & CART LOGIC ---
+// Initial quantities load ചെയ്യുമ്പോൾ default ആയി 5 ആക്കുക
 let itemQuantities = {};
 
 function changeQty(id, change) {
-    if (!itemQuantities[id]) itemQuantities[id] = 5;
+    if (!itemQuantities[id]) {
+        let currentQtyText = document.getElementById('qty-' + id).innerText;
+        itemQuantities[id] = parseInt(currentQtyText) || 5;
+    }
 
     itemQuantities[id] += change;
 
@@ -613,9 +615,10 @@ function changeQty(id, change) {
 
 function addToCart(name, price, id, img) {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    let qty = parseInt(document.getElementById('qty-' + id).innerText);
+    let qtyElement = document.getElementById('qty-' + id);
+    let qty = qtyElement ? parseInt(qtyElement.innerText) : 5;
 
-    if (qty < 5) {
+    if (isNaN(qty) || qty < 5) {
         alert("ക്ഷമിക്കണം, ഈ ഉൽപ്പന്നം മിനിമം 5 കിലോ എങ്കിലും ഓർഡർ ചെയ്യണം.");
         return;
     }
@@ -634,11 +637,14 @@ function addToCart(name, price, id, img) {
     }
 
     localStorage.setItem("cart", JSON.stringify(cart));
-    alert(qty + " kg " + name + " added to cart!");
+    alert(qty + " kg " + name + " കാർട്ടിലേക്ക് ചേർത്തു!");
 
-    document.getElementById('qty-' + id).innerText = 5;
+    // Reset back to 5 after adding
+    if (qtyElement) qtyElement.innerText = "5";
     itemQuantities[id] = 5;
 }
+
+
 </script>   
 </body>
 </html>
