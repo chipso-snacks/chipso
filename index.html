@@ -4,55 +4,55 @@
     <meta charset="UTF-8">
     <meta name="google-site-verification" content="839lNAHnmsqWzQ4oZ_fe86ozV4sQ5skM2SvBcgwh84Q" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Kyachee Snaxx - Premium Quality Snacks Kottayam | Banana Chips, Murukku</title>
-
-    <meta name="keywords" content="Kyachee snacks, Kyachee snaxx, Kerala snacks, banana chips Kerala, murukku online, snacks Kottayam, best snacks Kerala">
-    <meta name="description" content="Order fresh Kerala snacks online. Banana chips, murukku, tapioca chips and more from Kyachee Snaxx.kyachee snacks">
-
+    <title>Chipso Snaxx - Premium Quality Snacks Kottayam | Banana Chips, Murukku</title>
+    <meta name="keywords" content="Chipso snacks, Chipso snaxx, Kerala snacks, banana chips Kerala, murukku online, snacks Kottayam, best snacks Kerala">
+    <meta name="description" content="Order fresh Kerala snacks online. Banana chips, murukku, tapioca chips and more from Chipso Snaxx.chipso snacks">
     <link rel="icon" type="image/jpeg" href="logo.jpg">
     <link rel="apple-touch-icon" href="logo.jpg">
-
-    <!-- Modern Google Fonts (Poppins + Outfit) -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Outfit:wght@300;400;600;800&family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-gradient: linear-gradient(135deg, #ffcc00 0%, #ff5252 100%);
-            --premium-gold: linear-gradient(135deg, #ffe066 0%, #f5b041 50%, #d4ac0d 100%);
-            --gold-hover: linear-gradient(135deg, #ffd433 0%, #f39c12 100%);
-            --secondary-light-red: #ff7675;
-            --dark-color: #0f0f11;
-            --white: #ffffff;
-            --glass-bg: rgba(255, 255, 255, 0.15);
-            --glass-border: rgba(255, 255, 255, 0.25);
-            --luxury-shadow: 0 15px 35px rgba(0, 0, 0, 0.08), 0 5px 15px rgba(0, 0, 0, 0.04);
-            --glow-effect: 0 0 40px rgba(255, 204, 0, 0.15);
+            --bg-dark: #0d0e12;
+            --card-bg: rgba(22, 24, 33, 0.75);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --text-main: #f5f6fa;
+            --text-sub: #a0a5b5;
+            
+            /* Multi-color accents matched with Logo */
+            --accent-blue: #00a2ff;
+            --accent-green: #2ed573;
+            --accent-yellow: #ffa502;
+            --accent-red: #ff4757;
+            
+            --btn-gradient: linear-gradient(135deg, #ffa502 0%, #ff4757 100%);
+            --btn-hover: linear-gradient(135deg, #ffb833 0%, #ff6b81 100%);
+            --glow-shadow: 0 10px 30px rgba(255, 71, 87, 0.25);
         }
 
         body { 
             font-family: 'Outfit', 'Poppins', sans-serif; 
-            margin: 0;  
-            color: var(--dark-color);
-            background: linear-gradient(180deg, #fffbf0 0%, #fff3f3 50%, #fffcf5 100%);
+            margin: 0; 
+            color: var(--text-main);
+            background-color: var(--bg-dark);
             line-height: 1.6;
             overflow-x: hidden;
             position: relative;
         }
 
-        /* Soft background glow effects */
+        /* Vibrant background glow blurs matched with Logo colors */
         body::before {
             content: '';
             position: absolute;
-            top: 15%;
+            top: 5%;
             left: -10%;
-            width: 400px;
-            height: 400px;
-            background: #ffcc00;
-            filter: blur(150px);
-            opacity: 0.15;
+            width: 450px;
+            height: 450px;
+            background: var(--accent-blue);
+            filter: blur(180px);
+            opacity: 0.18;
             z-index: -1;
             border-radius: 50%;
         }
@@ -60,13 +60,13 @@
         body::after {
             content: '';
             position: absolute;
-            top: 60%;
+            top: 50%;
             right: -10%;
             width: 500px;
             height: 500px;
-            background: #ff5252;
-            filter: blur(180px);
-            opacity: 0.12;
+            background: var(--accent-red);
+            filter: blur(200px);
+            opacity: 0.15;
             z-index: -1;
             border-radius: 50%;
         }
@@ -84,7 +84,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(255, 255, 255, 0.7); 
+            background-color: rgba(13, 14, 18, 0.85); 
             backdrop-filter: blur(20px);
             display: flex;
             justify-content: center;
@@ -97,7 +97,7 @@
             width: 280px;
             height: auto;
             border-radius: 50%;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
             animation: popIn 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
         }
 
@@ -114,71 +114,95 @@
 
         /* --- GLASSMORPHISM HEADER --- */
         header { 
-            background: linear-gradient(135deg, rgba(255, 204, 0, 0.2), rgba(255, 82, 82, 0.15));
+            background: rgba(22, 24, 33, 0.4);
             backdrop-filter: blur(25px);
             -webkit-backdrop-filter: blur(25px);
-            border-bottom: 1px solid var(--glass-border);
-            padding: 80px 20px; 
+            border-bottom: 1px solid var(--card-border);
+            padding: 60px 20px; 
             text-align: center;
             position: relative;
-            box-shadow: var(--glow-effect);
         }
 
-        header h1 { 
-            font-size: 5rem;
-            margin: 0; 
-            text-transform: uppercase;
-            font-weight: 800;
-            letter-spacing: -1px;
-            background: linear-gradient(135deg, #222 30%, #ff5252 100%);
+        /* --- 3D BUBBLE LOGO TEXT --- */
+        .chipso-title {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 6.5rem;
+            font-weight: 700;
+            margin: 0;
+            letter-spacing: -2px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            line-height: 1;
+        }
+
+        .chipso-title span {
+            display: inline-block;
+            position: relative;
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            filter: drop-shadow(2px 6px 8px rgba(0, 0, 0, 0.5))
+                    drop-shadow(-1px -2px 2px rgba(255, 255, 255, 0.8));
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            padding: 0 2px;
         }
 
+        .chipso-title span:hover {
+            transform: translateY(-8px) scale(1.08);
+        }
+
+        /* Logo Gradient Colors */
+        .c-c { background: linear-gradient(180deg, #0d82df 0%, #00a2ff 60%, #005bc5 100%); }
+        .c-h { background: linear-gradient(180deg, #00bdf1 0%, #00d2ff 50%, #0093e0 100%); }
+        .c-i { background: linear-gradient(180deg, #00d3b7 0%, #00c9a7 50%, #00876c 100%); }
+        .c-p { background: linear-gradient(180deg, #64dd17 0%, #76ff03 50%, #388e3c 100%); }
+        .c-s { background: linear-gradient(180deg, #ffca28 0%, #ffa000 50%, #f57c00 100%); }
+        .c-o { background: linear-gradient(180deg, #ff5252 0%, #ff1744 50%, #b71c1c 100%); }
+
         header h2 {
-            margin: -10px 0 15px 0;
-            color: var(--secondary-light-red);
+            margin: 8px 0 15px 0;
+            color: #ffffff;
             font-size: 2.2rem;
             text-transform: lowercase;
             font-weight: 400;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
         }
         
         header p {
-            font-weight: 500;
+            font-weight: 400;
             font-size: 1.2rem;
-            color: #444;
+            color: var(--text-sub);
             max-width: 600px;
             margin: 0 auto;
         }
 
-        /* --- GLASSMORPHISM STICKY NAV --- */
+        /* --- STICKY NAV --- */
         nav { 
             display: flex; 
             justify-content: center; 
-            background: rgba(15, 15, 17, 0.85); 
+            background: rgba(13, 14, 18, 0.85); 
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-bottom: 1px solid var(--card-border);
         }
 
         nav a { 
-            color: #f4f4f4; 
+            color: var(--text-main); 
             padding: 18px 30px; 
             text-decoration: none; 
             text-transform: uppercase; 
             font-size: 0.85rem;
             font-weight: 600;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             transition: all 0.3s ease;
         }
 
         nav a:hover {
-            color: #ffcc00;
+            color: var(--accent-yellow);
             background: rgba(255,255,255,0.03);
         }
 
@@ -195,15 +219,16 @@
             gap: 40px;
         }
 
-        /* Floating Premium E-commerce Cards (Amazon/Apple style) */
+        /* Dark Premium Cards */
         .product-card { 
-            border: 1px solid rgba(0, 0, 0, 0.03);
+            border: 1px solid var(--card-border);
             border-radius: 24px; 
             padding: 24px; 
-            background: var(--white);
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
             text-align: center;
-            box-shadow: var(--luxury-shadow);
-            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.4s ease;
             position: relative;
             overflow: hidden;
             display: flex;
@@ -211,20 +236,18 @@
             justify-content: space-between;
         }
 
-        /* Smooth Hover Animations */
         .product-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12), 0 10px 25px rgba(255, 82, 82, 0.05);
-            border-color: rgba(255, 82, 82, 0.1);
+            border-color: rgba(255, 165, 2, 0.4);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
         }
 
         .product-img {
             width: 100%;
-            height: 300px;
+            height: 280px;
             border-radius: 16px;
             overflow: hidden;
             margin-bottom: 20px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.04);
             position: relative;
         }
 
@@ -243,34 +266,34 @@
             font-size: 1.4rem;
             margin: 10px 0 5px 0;
             font-weight: 700;
-            color: #111;
+            color: #fff;
         }
 
         .product-card .price {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             font-weight: 600;
-            color: var(--secondary-light-red);
+            color: var(--accent-yellow);
             margin: 0 0 15px 0;
         }
 
-        /* Premium Soft Controls */
+        /* Controls */
         .qty-controls {
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 18px;
             margin-bottom: 20px;
-            background: #fdf6f6;
+            background: rgba(255, 255, 255, 0.05);
             padding: 8px 16px;
             border-radius: 50px;
             width: fit-content;
             margin-left: auto;
             margin-right: auto;
-            border: 1px solid rgba(255, 118, 117, 0.1);
+            border: 1px solid var(--card-border);
         }
 
         .qty-btn {
-            background: var(--white);
+            background: rgba(255, 255, 255, 0.1);
             border: none;
             width: 32px;
             height: 32px;
@@ -280,13 +303,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.05);
             transition: all 0.2s ease;
-            color: #333;
+            color: white;
         }
 
         .qty-btn:hover {
-            background: var(--secondary-light-red);
+            background: var(--accent-red);
             color: white;
         }
 
@@ -294,12 +316,13 @@
             font-weight: 700;
             font-size: 1.05rem;
             min-width: 25px;
+            color: #fff;
         }
 
-        /* Premium Golden Buttons (Rounded) */
+        /* Gradient Glow Buttons */
         .order-btn { 
-            background: var(--premium-gold); 
-            color: #4a3300; 
+            background: var(--btn-gradient); 
+            color: #fff; 
             padding: 15px 30px; 
             text-decoration: none; 
             font-weight: 700; 
@@ -308,34 +331,34 @@
             border: none;
             cursor: pointer;
             width: 100%;
-            box-shadow: 0 5px 15px rgba(212, 172, 13, 0.25);
-            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: var(--glow-shadow);
+            transition: all 0.3s ease;
             letter-spacing: 0.5px;
         }
 
         .order-btn:hover { 
-            background: var(--gold-hover);
+            background: var(--btn-hover);
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(212, 172, 13, 0.4);
+            box-shadow: 0 12px 30px rgba(255, 71, 87, 0.4);
         }
 
-        /* --- PLACE ORDER CONTAINER & WRAPPER --- */
+        /* --- PLACE ORDER CONTAINER --- */
         .place-order-wrapper {
             text-align: center;
             margin: 70px 0 30px 0; 
         }
 
         .order-now-btn {
-            background: var(--premium-gold); 
-            color: #4a3300;
+            background: var(--btn-gradient); 
+            color: #fff;
             padding: 20px 60px;
             font-size: 1.3rem;
             font-weight: 800;
             text-decoration: none;
             text-transform: uppercase;
             border-radius: 50px; 
-            box-shadow: 0 10px 30px rgba(212, 172, 13, 0.35);
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: var(--glow-shadow);
+            transition: all 0.4s ease;
             display: inline-block;
             border: none;
             cursor: pointer;
@@ -343,19 +366,17 @@
         }
 
         .order-now-btn:hover {
-            background: var(--dark-color);
-            color: #ffcc00;
             transform: translateY(-5px); 
-            box-shadow: 0 15px 35px rgba(15, 15, 17, 0.3);
+            box-shadow: 0 15px 40px rgba(255, 71, 87, 0.5);
         }
 
         /* --- CONTACT SECTION --- */
         .contact-section { 
-            background: var(--dark-color); 
+            background: #090a0d; 
             color: white; 
             padding: 80px 24px; 
             text-align: center; 
-            position: relative;
+            border-top: 1px solid var(--card-border);
         }
 
         .contact-section h2 {
@@ -367,59 +388,54 @@
 
         .contact-section p {
             font-size: 1.1rem;
-            color: #bbb;
+            color: var(--text-sub);
             margin: 12px 0;
         }
 
-        /* --- LUXURY RESPONSIVE SPACING & ADAPTATION --- */
+        /* --- RESPONSIVE STYLES --- */
         @media (max-width: 768px) {
-            header { padding: 60px 16px; }
-            header h1 { font-size: 3.5rem; }
+            header { padding: 45px 16px; }
+            .chipso-title { font-size: 4.8rem; }
             header h2 { font-size: 1.8rem; }
             .products { padding: 40px 16px; }
             .product-container { gap: 20px; }
         }
 
         @media (max-width: 600px) {
-            header h1 { font-size: 2.8rem; }
-            header h2 { font-size: 1.5rem; }
+            .chipso-title { font-size: 3.5rem; }
+            header h2 { font-size: 1.4rem; }
             .splash-logo { width: 220px; }
             
-            /* Responsive grid & layout spacing */
             .products { padding: 25px 12px; }
             .product-container { grid-template-columns: repeat(2, 1fr); gap: 12px; }
             
-            /* Premium Cards refinement for smaller viewports */
             .product-card { padding: 12px; border-radius: 18px; }
             .product-card h3 { font-size: 1.05rem; margin: 8px 0 4px 0; }
             .product-card .price { font-size: 0.95rem; margin-bottom: 10px; }
             
-            /* Refined image height */
             .product-img { height: 160px; margin-bottom: 12px; border-radius: 12px; }
             
-            /* Compact soft controls */
             .qty-controls { gap: 10px; margin-bottom: 12px; padding: 4px 10px; }
             .qty-btn { width: 26px; height: 26px; font-size: 0.8rem; }
             .qty-controls span { font-size: 0.95rem; }
             
-            /* Premium Button adaptations */
             .order-btn { padding: 10px 15px; font-size: 0.85rem; border-radius: 30px; }
             .order-now-btn { padding: 16px 40px; font-size: 1.1rem; }
         }
     </style>
 </head>
-
 <body>
-
     <!-- Splash Screen Layer -->
     <div id="splash-screen">
-        <img src="logo2.png" alt="Kyachee Snaxx Logo" class="splash-logo">
+        <img src="logo2.png" alt="Chipso Snaxx Logo" class="splash-logo">
     </div>
 
     <!-- Main Website Content -->
     <div id="main-content">
         <header>
-            <h1>Kyachee</h1>
+            <h1 class="chipso-title">
+                <span class="c-c">C</span><span class="c-h">h</span><span class="c-i">i</span><span class="c-p">p</span><span class="c-s">s</span><span class="c-o">o</span>
+            </h1>
             <h2>snaxx</h2>
             <p>"പറയാൻ രസം, കഴിക്കാൻ അതിലേറെ രസം"</p>
         </header>
@@ -527,7 +543,7 @@
                         <button onclick="addToCart('Special Murukku',150,'SpecialMurukku','https://i.ibb.co/VWQDkyXZ/7106bb05-ef96-4edb-9aa8-68aa5beeacda.jpg')" class="order-btn">Add to Cart</button>
                     </div>
                 </div>
-                
+
                 <!-- Cheese Balls -->
                 <div class="product-card">
                     <div>
@@ -546,6 +562,7 @@
                        <button onclick="addToCart('Cheese Balls',150,'CheeseBalls','https://i.ibb.co/5X3VD5xB/69c9fb98-c69a-4354-bb20-78a7ab9bccf1-r2-c2.jpg')" class="order-btn">Add to Cart</button>
                     </div>
                 </div>
+
             </div>
 
             <div class="place-order-wrapper">
@@ -562,7 +579,7 @@
                 <p>📧 shahid321bila@gmail.com</p>
                 <p>📍 Kottayam, Kerala</p>
             </div>
-            <a href="https://maps.app.goo.gl/CZnFcyiJfntQVXqbA" class="order-btn" target="_blank" style="background: white; color: var(--dark-color); max-width: 200px; margin: 20px auto 0 auto; display: block;">View Location</a>
+            <a href="https://maps.app.goo.gl/CZnFcyiJfntQVXqbA" class="order-btn" target="_blank" style="background: rgba(255,255,255,0.1); color: #fff; max-width: 200px; margin: 20px auto 0 auto; display: block; border: 1px solid var(--card-border);">View Location</a>
         </section>
     </div>
 
@@ -621,8 +638,15 @@ function addToCart(name, price, id, img) {
 
     document.getElementById('qty-' + id).innerText = 5;
     itemQuantities[id] = 5;
+
+      document.onkeydown = function(e) {
+            if (e.keyCode == 123) { return false; }
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) { return false; }
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) { return false; }
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) { return false; }
+            if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) { return false; }
+        }
 }
 </script>   
-
 </body>
 </html>
