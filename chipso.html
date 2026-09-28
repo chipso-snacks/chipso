@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="google-site-verification" content="839lNAHnmsqWzQ4oZ_fe86ozV4sQ5skM2SvBcgwh84Q" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chipso Snaxx - Premium Quality Snacks Kottayam | Banana Chips, Murukku</title>
+    <meta name="keywords" content="Chipso snacks, Chipso snaxx, Kerala snacks, banana chips Kerala, murukku online, snacks Kottayam, best snacks Kerala">
+    <meta name="description" content="Order fresh Kerala snacks online. Banana chips, murukku, tapioca chips and more from Chipso Snaxx.chipso snacks">
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <link rel="apple-touch-icon" href="logo.jpg">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Outfit:wght@300;400;600;800&family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0d0e12;
+            --card-bg: rgba(22, 24, 33, 0.75);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --text-main: #f5f6fa;
+            --text-sub: #a0a5b5;
+            
+            /* Multi-color accents matched with Logo */
+            --accent-blue: #00a2ff;
+            --accent-green: #2ed573;
+            --accent-yellow: #ffa502;
+            --accent-red: #ff4757;
+            
+            --btn-gradient: linear-gradient(135deg, #ffa502 0%, #ff4757 100%);
+            --btn-hover: linear-gradient(135deg, #ffb833 0%, #ff6b81 100%);
+            --glow-shadow: 0 10px 30px rgba(255, 71, 87, 0.25);
+        }
+
+        body { 
+            font-family: 'Outfit', 'Poppins', sans-serif; 
+            margin: 0; 
+            color: var(--text-main);
+            background-color: var(--bg-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Vibrant background glow blurs matched with Logo colors */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 5%;
+            left: -10%;
+            width: 450px;
+            height: 450px;
+            background: var(--accent-blue);
+            filter: blur(180px);
+            opacity: 0.18;
+            z-index: -1;
+            border-radius: 50%;
+        }
+
+        body::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: var(--accent-red);
+            filter: blur(200px);
+            opacity: 0.15;
+            z-index: -1;
+            border-radius: 50%;
+        }
+
+        /* --- BLUR EFFECT FOR MAIN CONTENT --- */
+        #main-content {
+            filter: blur(8px);
+            transition: filter 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* --- SPLASH SCREEN STYLES --- */
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(13, 14, 18, 0.85); 
+            backdrop-filter: blur(20px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+
+        .splash-logo {
+            width: 280px;
+            height: auto;
+            border-radius: 50%;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            animation: popIn 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .splash-hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        /* --- GLASSMORPHISM HEADER --- */
+        header { 
+            background: rgba(22, 24, 33, 0.4);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-bottom: 1px solid var(--card-border);
+            padding: 60px 20px; 
+            text-align: center;
+            position: relative;
+        }
+
+        /* --- 3D BUBBLE LOGO TEXT --- */
+        .chipso-title {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 6.5rem;
+            font-weight: 700;
+            margin: 0;
+            letter-spacing: -2px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            line-height: 1;
+        }
+
+        .chipso-title span {
+            display: inline-block;
+            position: relative;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(2px 6px 8px rgba(0, 0, 0, 0.5))
+                    drop-shadow(-1px -2px 2px rgba(255, 255, 255, 0.8));
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            padding: 0 2px;
+        }
+
+        .chipso-title span:hover {
+            transform: translateY(-8px) scale(1.08);
+        }
+
+        /* Logo Gradient Colors */
+        .c-c { background: linear-gradient(180deg, #0d82df 0%, #00a2ff 60%, #005bc5 100%); }
+        .c-h { background: linear-gradient(180deg, #00bdf1 0%, #00d2ff 50%, #0093e0 100%); }
+        .c-i { background: linear-gradient(180deg, #00d3b7 0%, #00c9a7 50%, #00876c 100%); }
+        .c-p { background: linear-gradient(180deg, #64dd17 0%, #76ff03 50%, #388e3c 100%); }
+        .c-s { background: linear-gradient(180deg, #ffca28 0%, #ffa000 50%, #f57c00 100%); }
+        .c-o { background: linear-gradient(180deg, #ff5252 0%, #ff1744 50%, #b71c1c 100%); }
+
+        header h2 {
+            margin: 8px 0 15px 0;
+            color: #ffffff;
+            font-size: 2.2rem;
+            text-transform: lowercase;
+            font-weight: 400;
+            letter-spacing: 3px;
+        }
+        
+        header p {
+            font-weight: 400;
+            font-size: 1.2rem;
+            color: var(--text-sub);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* --- STICKY NAV --- */
+        nav { 
+            display: flex; 
+            justify-content: center; 
+            background: rgba(13, 14, 18, 0.85); 
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        nav a { 
+            color: var(--text-main); 
+            padding: 18px 30px; 
+            text-decoration: none; 
+            text-transform: uppercase; 
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent-yellow);
+            background: rgba(255,255,255,0.03);
+        }
+
+        /* --- PRODUCTS SECTION --- */
+        .products { 
+            padding: 80px 24px; 
+            max-width: 1300px; 
+            margin: 0 auto; 
+        }
+        
+        .product-container { 
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        /* Dark Premium Cards */
+        .product-card { 
+            border: 1px solid var(--card-border);
+            border-radius: 24px; 
+            padding: 24px; 
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255, 165, 2, 0.4);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 280px;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .product-img img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .product-card:hover .product-img img {
+            transform: scale(1.06);
+        }
+
+        .product-card h3 {
+            font-size: 1.4rem;
+            margin: 10px 0 5px 0;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .product-card .price {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--accent-yellow);
+            margin: 0 0 15px 0;
+        }
+
+        /* Controls */
+        .qty-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 8px 16px;
+            border-radius: 50px;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            border: 1px solid var(--card-border);
+        }
+
+        .qty-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            color: white;
+        }
+
+        .qty-btn:hover {
+            background: var(--accent-red);
+            color: white;
+        }
+
+        .qty-controls span {
+            font-weight: 700;
+            font-size: 1.05rem;
+            min-width: 25px;
+            color: #fff;
+        }
+
+        /* Gradient Glow Buttons */
+        .order-btn { 
+            background: var(--btn-gradient); 
+            color: #fff; 
+            padding: 15px 30px; 
+            text-decoration: none; 
+            font-weight: 700; 
+            font-size: 0.95rem;
+            border-radius: 50px; 
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            box-shadow: var(--glow-shadow);
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .order-btn:hover { 
+            background: var(--btn-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(255, 71, 87, 0.4);
+        }
+
+        /* --- PLACE ORDER CONTAINER --- */
+        .place-order-wrapper {
+            text-align: center;
+            margin: 70px 0 30px 0; 
+        }
+
+        .order-now-btn {
+            background: var(--btn-gradient); 
+            color: #fff;
+            padding: 20px 60px;
+            font-size: 1.3rem;
+            font-weight: 800;
+            text-decoration: none;
+            text-transform: uppercase;
+            border-radius: 50px; 
+            box-shadow: var(--glow-shadow);
+            transition: all 0.4s ease;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+            letter-spacing: 1px;
+        }
+
+        .order-now-btn:hover {
+            transform: translateY(-5px); 
+            box-shadow: 0 15px 40px rgba(255, 71, 87, 0.5);
+        }
+
+        /* --- CONTACT SECTION --- */
+        .contact-section { 
+            background: #090a0d; 
+            color: white; 
+            padding: 80px 24px; 
+            text-align: center; 
+            border-top: 1px solid var(--card-border);
+        }
+
+        .contact-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            letter-spacing: -0.5px;
+        }
+
+        .contact-section p {
+            font-size: 1.1rem;
+            color: var(--text-sub);
+            margin: 12px 0;
+        }
+
+        /* --- RESPONSIVE STYLES --- */
+        @media (max-width: 768px) {
+            header { padding: 45px 16px; }
+            .chipso-title { font-size: 4.8rem; }
+            header h2 { font-size: 1.8rem; }
+            .products { padding: 40px 16px; }
+            .product-container { gap: 20px; }
+        }
+
+        @media (max-width: 600px) {
+            .chipso-title { font-size: 3.5rem; }
+            header h2 { font-size: 1.4rem; }
+            .splash-logo { width: 220px; }
+            
+            .products { padding: 25px 12px; }
+            .product-container { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            
+            .product-card { padding: 12px; border-radius: 18px; }
+            .product-card h3 { font-size: 1.05rem; margin: 8px 0 4px 0; }
+            .product-card .price { font-size: 0.95rem; margin-bottom: 10px; }
+            
+            .product-img { height: 160px; margin-bottom: 12px; border-radius: 12px; }
+            
+            .qty-controls { gap: 10px; margin-bottom: 12px; padding: 4px 10px; }
+            .qty-btn { width: 26px; height: 26px; font-size: 0.8rem; }
+            .qty-controls span { font-size: 0.95rem; }
+            
+            .order-btn { padding: 10px 15px; font-size: 0.85rem; border-radius: 30px; }
+            .order-now-btn { padding: 16px 40px; font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Splash Screen Layer -->
+    <div id="splash-screen">
+        <img src="logo2.png" alt="Chipso Snaxx Logo" class="splash-logo">
+    </div>
+
+    <!-- Main Website Content -->
+    <div id="main-content">
+        <header>
+            <h1 class="chipso-title">
+                <span class="c-c">C</span><span class="c-h">h</span><span class="c-i">i</span><span class="c-p">p</span><span class="c-s">s</span><span class="c-o">o</span>
+            </h1>
+            <h2>snaxx</h2>
+            <p>"പറയാൻ രസം, കഴിക്കാൻ അതിലേറെ രസം"</p>
+        </header>
+
+        <nav>
+            <a href="#products">Products</a>
+            <a href="#contact">Contact</a>
+            <a href="cart.html">Cart 🛒</a>
+        </nav>
+
+        <section class="products" id="products">
+            <div class="product-container">
+
+                <!-- Product 1: Murukku -->
+                <div class="product-card">
+                    <div>
+                        <div class="product-img">
+                            <img src="https://i.ibb.co/RpFxkTZK/69c9fb98-c69a-4354-bb20-78a7ab9bccf1-r1-c1.jpg" alt="Murukku">
+                        </div>
+                        <h3>Murukku</h3>
+                        <p class="price">₹150/kg</p>
+                    </div>
+                    <div>
+                        <div class="qty-controls">
+                            <button class="qty-btn" onclick="changeQty('Murukku', -1)">-</button>
+                            <span id="qty-Murukku">5</span>
+                            <button class="qty-btn" onclick="changeQty('Murukku', 1)">+</button>
+                        </div>
+                       <button onclick="addToCart('Murukku',150,'Murukku','https://i.ibb.co/RpFxkTZK/69c9fb98-c69a-4354-bb20-78a7ab9bccf1-r1-c1.jpg')" class="order-btn">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 2: Banana Chips -->
+                <div class="product-card">
+                    <div>
+                        <div class="product-img">
+                            <img src="https://i.ibb.co/Zp47rMKM/69c9fb98-c69a-4354-bb20-78a7ab9bccf1-r1-c2.jpg" alt="Banana Chips">
+                        </div>
+                        <h3>Banana Chips</h3>
+                        <p class="price">₹150/kg</p>
+                    </div>
+                    <div>
+                        <div class="qty-controls">
+                            <button class="qty-btn" onclick="changeQty('BananaChips', -1)">-</button>
+                            <span id="qty-BananaChips">5</span>
+                            <button class="qty-btn" onclick="changeQty('BananaChips', 1)">+</button>
+                        </div>
+                       <button onclick="addToCart('Banana Chips',150,'BananaChips','https://i.ibb.co/Zp47rMKM/69c9fb98-c69a-4354-bb20-78a7ab9bccf1-r1-c2.jpg')" class="order-btn">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 3: Joystick -->
+                <div class="product-card">
+                    <div>
+                        <div class="product-img">
+                            <img src="https://i.ibb.co/ycx85w7Y/5f710085-b22f-4622-b498-50ab6c53aa5a.jpg" alt="Joystick">
+                        </div>
+                        <h3>Joystick</h3>
+                        <p class="price">₹150/kg</p>
+                    </div>
+                    <div>
+                        <div class="qty-controls">
+                            <button class="qty-btn" onclick="changeQty('Joystick', -1)">-</button>
+                            <span id="qty-Joystick">5</span>
+                            <button class="qty-btn" onclick="changeQty('Joystick', 1)">+</button>
+                        </div>
+                        <button onclick="addToCart('Joystick',150,'Joystick','https://i.ibb.co/ycx85w7Y/5f710085-b22f-4622-b498-50ab6c53aa5a.jpg')" class="order-btn">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 4: Tapioca Chips -->
+                <div class="product-card">
+                    <div>
+                        <div class="product-img">
+                            <img src="https://i.ibb.co/PsDT9sby/69c9fb98-c69a-4354-bb20-78a7ab9bccf1-r1-c3.jpg" alt="Tapioca Chips">
+                        </div>
+                        <h3>Tapioca Chips</h3>
+                        <p class="price">₹150/kg</p>
+                    </div>
+                    <div>
+                        <div class="qty-controls">
+                            <button class="qty-btn" onclick="changeQty('Tapioca', -1)">-</button>
+                            <span id="qty-Tapioca">5</span>
+                            <button class="qty-btn" onclick="changeQty('Tapioca', 1)">+</button>
+                        </div>
+                        <button onclick="addToCart('Tapioca Chips',150,'Tapioca','https://i.ibb.co/PsDT9sby/69c9fb98-c69a-4354-bb20-78a7ab9bccf1-r1-c3.jpg')" class="order-btn">Add to Cart</button>
+                    </div>
+                </div>
+
+                 <!-- Special Murukku -->
+                <div class="product-card">
+                    <div>
+                        <div class="product-img">
+                            <img src="https://i.ibb.co/VWQDkyXZ/7106bb05-ef96-4edb-9aa8-68aa5beeacda.jpg" alt="Special Murukku">
+                        </div>
+                        <h3>Special Murukku</h3>
+                        <p class="price">₹150/kg</p>
+                    </div>
+                    <div>
+                        <div class="qty-controls">
+                            <button class="qty-btn" onclick="changeQty('SpecialMurukku', -1)">-</button>
+                            <span id="qty-SpecialMurukku">5</span>
+                            <button class="qty-btn" onclick="changeQty('SpecialMurukku', 1)">+</button>
+                        </div>
+                        <button onclick="addToCart('Special Murukku',150,'SpecialMurukku','https://i.ibb.co/VWQDkyXZ/7106bb05-ef96-4edb-9aa8-68aa5beeacda.jpg')" class="order-btn">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Cheese Balls -->
+                <div class="product-card">
+                    <div>
+                        <div class="product-img">
+                            <img src="https://i.ibb.co/5X3VD5xB/69c9fb98-c69a-4354-bb20-78a7ab9bccf1-r2-c2.jpg" alt="Cheese Balls">
+                        </div>
+                        <h3>Cheese Balls</h3>
+                        <p class="price">₹150/kg</p>
+                    </div>
+                    <div>
+                        <div class="qty-controls">
+                            <button class="qty-btn" onclick="changeQty('CheeseBalls', -1)">-</button>
+                            <span id="qty-CheeseBalls">5</span>
+                            <button class="qty-btn" onclick="changeQty('CheeseBalls', 1)">+</button>
+                        </div>
+                       <button onclick="addToCart('Cheese Balls',150,'CheeseBalls','https://i.ibb.co/5X3VD5xB/69c9fb98-c69a-4354-bb20-78a7ab9bccf1-r2-c2.jpg')" class="order-btn">Add to Cart</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="place-order-wrapper">
+                <a href="cart.html" class="order-now-btn">
+                    Place Your Order 🛒
+                </a>
+            </div>
+        </section>
+
+        <section class="contact-section" id="contact">
+            <h2>Get In Touch</h2>
+            <div style="margin: 20px 0;">
+                <p>📞 +91 9744390615 | +91 9744390657</p>
+                <p>📧 shahid321bila@gmail.com</p>
+                <p>📍 Kottayam, Kerala</p>
+            </div>
+            <a href="https://maps.app.goo.gl/CZnFcyiJfntQVXqbA" class="order-btn" target="_blank" style="background: rgba(255,255,255,0.1); color: #fff; max-width: 200px; margin: 20px auto 0 auto; display: block; border: 1px solid var(--card-border);">View Location</a>
+        </section>
+    </div>
+
+<script>
+// --- SPLASH SCREEN LOGIC ---
+window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+        const splash = document.getElementById('splash-screen');
+        splash.classList.add('splash-hidden');
+        
+        const mainContent = document.getElementById('main-content');
+        mainContent.style.filter = 'none';
+    }, 2500); 
+});
+
+// --- QUANTITY & CART LOGIC ---
+let itemQuantities = {};
+
+function changeQty(id, change) {
+    if (!itemQuantities[id]) itemQuantities[id] = 5;
+
+    itemQuantities[id] += change;
+
+    if (itemQuantities[id] < 5) {
+        itemQuantities[id] = 5;
+        alert("മിനിമം ഓർഡർ 5 കിലോ ആണ്!");
+    }
+
+    document.getElementById('qty-' + id).innerText = itemQuantities[id];
+}
+
+function addToCart(name, price, id, img) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let qty = parseInt(document.getElementById('qty-' + id).innerText);
+
+    if (qty < 5) {
+        alert("ക്ഷമിക്കണം, ഈ ഉൽപ്പന്നം മിനിമം 5 കിലോ എങ്കിലും ഓർഡർ ചെയ്യണം.");
+        return;
+    }
+
+    let existingItem = cart.find(p => p.name === name);
+
+    if (existingItem) {
+        existingItem.qty += qty;
+    } else {
+        cart.push({
+            name: name,
+            price: price,
+            qty: qty,
+            img: img 
+        });
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert(qty + " kg " + name + " added to cart!");
+
+    document.getElementById('qty-' + id).innerText = 5;
+    itemQuantities[id] = 5;
+}
+</script>   
+</body>
+</html>

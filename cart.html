@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cart - Chipso Snaxx</title>
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <link rel="apple-touch-icon" href="logo.jpg">
+
+<!-- Modern Google Fonts (Fredoka + Poppins + Outfit) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Outfit:wght@300;400;600;800&family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<style>
+:root { 
+    --bg-dark: #0d0e12;
+    --card-bg: rgba(22, 24, 33, 0.75);
+    --card-border: rgba(255, 255, 255, 0.08);
+    --text-main: #f5f6fa;
+    --text-sub: #a0a5b5;
+    
+    /* Multi-color accents matched with Logo */
+    --accent-blue: #00a2ff;
+    --accent-green: #2ed573;
+    --accent-yellow: #ffa502;
+    --accent-red: #ff4757;
+    
+    --btn-gradient: linear-gradient(135deg, #ffa502 0%, #ff4757 100%);
+    --btn-hover: linear-gradient(135deg, #ffb833 0%, #ff6b81 100%);
+    --glow-shadow: 0 10px 30px rgba(255, 71, 87, 0.25);
+}
+
+body { 
+    font-family: 'Outfit', 'Poppins', sans-serif; 
+    margin:0; 
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Vibrant background glow blurs matched with Logo colors */
+body::before {
+    content: '';
+    position: absolute;
+    top: 10%;
+    left: -10%;
+    width: 450px;
+    height: 450px;
+    background: var(--accent-blue);
+    filter: blur(180px);
+    opacity: 0.18;
+    z-index: -1;
+    border-radius: 50%;
+}
+
+body::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    background: var(--accent-red);
+    filter: blur(200px);
+    opacity: 0.15;
+    z-index: -1;
+    border-radius: 50%;
+}
+
+/* --- GLASSMORPHISM HEADER --- */
+header { 
+    background: rgba(22, 24, 33, 0.4);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-bottom: 1px solid var(--card-border);
+    padding: 30px; 
+    text-align: center; 
+    font-size: 24px; 
+    font-weight: 800; 
+    letter-spacing: 0.5px;
+    position: relative;
+    color: var(--text-main);
+}
+
+.back-btn {
+    position: absolute;
+    top: 25px;
+    left: 20px;
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text-main);
+    border: 1px solid var(--card-border);
+    padding: 10px 22px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.back-btn:hover { 
+    background: var(--accent-red); 
+    color: white; 
+    transform: translateX(-3px);
+    border-color: transparent;
+}
+.back-btn:active { transform: scale(0.95); }
+
+h2 { 
+    text-align: center; 
+    margin-top: 50px; 
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff; 
+}
+
+/* Floating Premium Dark Table Container */
+.table-container { 
+    width:92%; 
+    max-width:950px; 
+    margin:30px auto; 
+    background: var(--card-bg); 
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 20px; 
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5); 
+    overflow-x:auto; 
+    border: 1px solid var(--card-border);
+}
+
+table { width:100%; border-collapse:collapse; min-width: 500px; }
+th, td { padding: 18px 20px; text-align:center; border-bottom:1px solid var(--card-border); }
+th { background: rgba(0, 0, 0, 0.3); font-weight: 700; color: var(--text-sub); text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.8px; }
+
+.product-cell { display: flex; align-items: center; gap: 16px; text-align: left; }
+.cart-img { width: 55px; height: 55px; object-fit: cover; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+.product-cell span { font-weight: 600; color: #fff; }
+
+/* Dark Quantity Controls */
+.qty-controls-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 6px 12px;
+    border-radius: 50px;
+    width: fit-content;
+    margin: 0 auto;
+    border: 1px solid var(--card-border);
+}
+
+.qty-btn { 
+    background: rgba(255, 255, 255, 0.1); 
+    border: none; 
+    width: 28px; 
+    height: 28px; 
+    cursor: pointer; 
+    border-radius: 50%; 
+    font-weight: bold; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    transition: all 0.2s ease;
+}
+.qty-btn:hover { background: var(--accent-red); color: white; }
+.qty-val { margin: 0 12px; font-weight: 700; font-size: 1rem; color: #fff; }
+
+.remove-btn { 
+    background: rgba(255, 71, 87, 0.15); 
+    color: var(--accent-red); 
+    border: 1px solid rgba(255, 71, 87, 0.3); 
+    padding: 8px 14px; 
+    border-radius: 50px; 
+    cursor: pointer; 
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+.remove-btn:hover { background: var(--accent-red); color: #fff; }
+
+.total-section { 
+    text-align: center; 
+    font-size: 28px; 
+    margin: 40px 20px 20px 20px; 
+    font-weight: 800; 
+    color: var(--accent-yellow); 
+}
+
+/* Premium Gradient Button (Rounded) */
+.btn { 
+    display: block; 
+    margin: 20px auto 60px; 
+    padding: 18px 60px; 
+    background: var(--btn-gradient); 
+    color: #fff;
+    border: none; 
+    border-radius: 50px; 
+    cursor: pointer; 
+    font-weight: 800; 
+    font-size: 1.2rem; 
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    box-shadow: var(--glow-shadow);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); 
+}
+.btn:hover { 
+    background: var(--btn-hover); 
+    transform: translateY(-4px); 
+    box-shadow: 0 15px 35px rgba(255, 71, 87, 0.4);
+}
+
+/* Responsive spacing optimizations */
+@media (max-width: 768px) {
+    header { padding: 25px; font-size: 22px; }
+    .back-btn { position: static; display: inline-block; margin: 0 0 15px 0; padding: 8px 18px; }
+    h2 { margin-top: 25px; font-size: 1.6rem; }
+}
+
+@media (max-width: 600px) { 
+    header { font-size: 20px; padding: 20px; } 
+    .table-container { width: 95%; margin: 15px auto; border-radius: 14px; }
+    th, td { padding: 12px 10px; font-size: 0.9rem; }
+    .cart-img { width: 42px; height: 42px; border-radius: 8px; }
+    .product-cell { gap: 10px; }
+    .qty-controls-wrapper { padding: 4px 8px; }
+    .qty-btn { width: 24px; height: 24px; font-size: 0.8rem; }
+    .qty-val { margin: 0 8px; font-size: 0.9rem; }
+    .remove-btn { padding: 6px 10px; font-size: 0.8rem; }
+    .total-section { font-size: 22px; margin-top: 30px; }
+    .btn { width: 90%; padding: 15px 20px; font-size: 1.05rem; }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <button onclick="goBack()" class="back-btn">⬅ Back</button>
+    Chipso Snaxx Cart 🛒
+</header>
+
+<h2>Your Items</h2>
+
+<div class="table-container">
+<table id="cartTable">
+<thead>
+    <tr>
+    <th style="text-align: left; padding-left: 25px;">Product</th>
+    <th>Price</th>
+    <th>Qty</th>
+    <th>Remove</th>
+    </tr>
+</thead>
+<tbody id="cartBody"></tbody>
+</table>
+</div>
+
+<div class="total-section" id="grandTotal">Total: ₹0</div>
+<button class="btn" onclick="goToOrder()">Place Order Now</button>
+
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function loadCart(){
+    let tableBody = document.getElementById("cartBody");
+    tableBody.innerHTML = "";
+    let total = 0;
+
+    if(cart.length === 0) {
+        tableBody.innerHTML = "<tr><td colspan='4' style='padding:40px; color: var(--text-sub); font-weight:500;'>Your cart is empty!</td></tr>";
+        document.getElementById("grandTotal").innerText = "Total: ₹0";
+        return;
+    }
+
+    cart.forEach((item, index) => {
+        let row = tableBody.insertRow();
+        row.innerHTML = `
+        <td>
+            <div class="product-cell" style="padding-left: 10px;">
+                <img src="${item.img}" class="cart-img">
+                <span>${item.name}</span>
+            </div>
+        </td>
+        <td style="font-weight: 600; color: var(--accent-yellow);">₹${item.price}</td>
+        <td>
+            <div class="qty-controls-wrapper">
+                <button class="qty-btn" onclick="updateQty(${index}, -1)">-</button>
+                <span class="qty-val">${item.qty}</span>
+                <button class="qty-btn" onclick="updateQty(${index}, 1)">+</button>
+            </div>
+        </td>
+        <td>
+            <button class="remove-btn" onclick="removeItem(${index})">✕</button>
+        </td>
+        `;
+        total += item.price * item.qty;
+    });
+
+    document.getElementById("grandTotal").innerText = "Total: ₹" + total;
+}
+
+function updateQty(index, change) {
+    if (cart[index].qty + change > 0) {
+        cart[index].qty += change;
+        saveAndReload();
+    }
+}
+
+function removeItem(index){
+    if(confirm("Remove this item?")) {
+        cart.splice(index, 1);
+        saveAndReload();
+    }
+}
+
+function saveAndReload() {
+    localStorage.setItem("cart", JSON.stringify(cart));
+    loadCart();
+}
+
+function goToOrder(){
+    if(cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+    }
+    let summary = cart.map(item => `${item.name} (${item.qty}kg)`).join(", ");
+    let totalAmount = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+    localStorage.setItem("fullOrderSummary", summary);
+    localStorage.setItem("totalOrderAmount", totalAmount);
+    window.location.href = "orderchipso.html";
+}
+
+function goBack(){
+    window.history.back();
+}
+
+loadCart();
+</script>
+</body>
+</html>
