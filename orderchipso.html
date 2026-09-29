@@ -21,7 +21,6 @@
     --text-main: #f5f6fa;
     --text-sub: #a0a5b5;
     
-    /* Multi-color accents matched with Logo */
     --accent-blue: #00a2ff;
     --accent-green: #2ed573;
     --accent-yellow: #ffa502;
@@ -42,7 +41,6 @@ body {
     overflow-x: hidden;
 }
 
-/* Vibrant background glow blurs matched with Logo colors */
 body::before {
     content: '';
     position: absolute;
@@ -71,7 +69,6 @@ body::after {
     border-radius: 50%;
 }
 
-/* --- GLASSMORPHISM HEADER --- */
 header {
     background: rgba(22, 24, 33, 0.4);
     backdrop-filter: blur(25px);
@@ -82,7 +79,6 @@ header {
     position: relative;
 }
 
-/* --- 3D BUBBLE LOGO TEXT --- */
 .chipso-title {
     font-family: 'Fredoka', sans-serif;
     font-size: 4.5rem;
@@ -111,7 +107,6 @@ header {
     transform: translateY(-5px) scale(1.08);
 }
 
-/* Logo Gradient Colors for CHIPSO */
 .c-c { background: linear-gradient(180deg, #0d82df 0%, #00a2ff 60%, #005bc5 100%); }
 .c-h { background: linear-gradient(180deg, #00bdf1 0%, #00d2ff 50%, #0093e0 100%); }
 .c-i { background: linear-gradient(180deg, #00d3b7 0%, #00c9a7 50%, #00876c 100%); }
@@ -163,7 +158,6 @@ header p {
     transform:scale(0.95);
 }
 
-/* Floating Premium Dark Order Container */
 .order-container {
     max-width:480px;
     margin: 50px auto;
@@ -224,7 +218,6 @@ textarea::placeholder {
     color: rgba(255, 255, 255, 0.3);
 }
 
-/* Accent highlight on focus */
 input:focus,
 textarea:focus {
     outline: none;
@@ -241,7 +234,6 @@ textarea:focus {
     border-color: var(--card-border);
 }
 
-/* Premium Gradient Button */
 button.submit-btn {
     background: var(--btn-gradient);
     color: #fff;
@@ -283,7 +275,6 @@ footer {
     border-top: 1px solid var(--card-border);
 }
 
-/* Responsive optimization - Keeps back button fixed at the top-left in mobile view */
 @media (max-width: 768px) {
     header { padding: 50px 16px 30px 16px; }
     .chipso-title { font-size: 3.2rem; }
@@ -332,22 +323,23 @@ footer {
 Secure Checkout
 </h2>
 
-<form id="orderForm">
+<!-- ഒരൊറ്റ ഫോം മാത്രം ഉപയോഗിക്കുക -->
+<form action="https://sheetdb.io/api/v1/sb038hzch8dps" method="post" id="sheetdb-form" autocomplete="off">
 
 <label>Full Name</label>
-<input type="text" id="name" placeholder="Your Name" required>
+<input type="text" id="name" name="Name" placeholder="Your Name" required>
 
 <label>WhatsApp Number</label>
-<input type="text" id="phone" placeholder="Contact Number" required>
+<input type="text" id="phone" name="Phone" placeholder="Contact Number" required>
 
 <label>Delivery Address</label>
-<textarea id="address" rows="3" placeholder="Flat No, Street, Landmark, Pin" required></textarea>
+<textarea id="address" name="Address" rows="3" placeholder="Flat No, Street, Landmark, Pin" required></textarea>
 
 <label>Items in Your Cart</label>
-<textarea id="productList" rows="3" class="readonly-box" readonly></textarea>
+<textarea id="productList" name="Products" rows="3" class="readonly-box" readonly></textarea>
 
 <label>Total Amount (₹)</label>
-<input type="text" id="totalDisplay" class="readonly-box" readonly>
+<input type="text" id="totalDisplay" name="Total" class="readonly-box" readonly>
 
 <button type="submit" class="submit-btn">
 Confirm Your Order
@@ -360,74 +352,43 @@ Confirm Your Order
 <script>
 
 window.onload = function(){
-
     let summary = localStorage.getItem("fullOrderSummary");
     let total = localStorage.getItem("totalOrderAmount");
 
     if(summary){
-
         document.getElementById("productList").value = summary;
         document.getElementById("totalDisplay").value = total;
-
-    }else{
-
+    } else {
         alert("Please add items to cart first!");
         window.location.href = "cart.html";
-
     }
-
 };
 
-document.getElementById("orderForm").addEventListener("submit", function(e){
+var form = document.getElementById('sheetdb-form');
+form.addEventListener("submit", e => {
+  e.preventDefault();
+  
+  // Submit ചെയ്യുമ്പോൾ ബട്ടൺ ഡിസേബിൾ ചെയ്യാനും ടെക്സ്റ്റ് മാറ്റാനും
+  const btn = form.querySelector('.submit-btn');
+  btn.disabled = true;
+  btn.innerText = "Processing...";
 
-    e.preventDefault();
-
-    const btn = document.querySelector(".submit-btn");
-
-    btn.innerHTML = "Opening WhatsApp...";
-    btn.disabled = true;
-
-    // CUSTOMER DETAILS
-    let name = document.getElementById("name").value;
-    let phone = document.getElementById("phone").value;
-    let address = document.getElementById("address").value;
-    let products = document.getElementById("productList").value;
-    let total = document.getElementById("totalDisplay").value;
-
-    // YOUR WHATSAPP NUMBER
-    let ownerNumber = "919495603617";
-
-    // MESSAGE
-    let message =
-`🛒 *NEW ORDER - CHIPSO SNAXX*
-
-👤 Name: ${name}
-
-📞 Phone: ${phone}
-
-🏠 Address:
-${address}
-
-🧾 Ordered Items:
-${products}
-
-💰 Total Amount: ₹${total}`;
-
-    // ENCODE MESSAGE
-    let encodedMessage = encodeURIComponent(message);
-
-    // WHATSAPP LINK
-    let whatsappURL =
-`https://wa.me/${ownerNumber}?text=${encodedMessage}`;
-
-    // CLEAR CART
-    localStorage.removeItem("cart");
-    localStorage.removeItem("fullOrderSummary");
-    localStorage.removeItem("totalOrderAmount");
-
-    // OPEN WHATSAPP
-    window.location.href = whatsappURL;
-
+  fetch(form.action, {
+      method: "POST",
+      body: new FormData(form),
+  }).then(
+      response => response.json()
+  ).then((data) => {
+      // ഓർഡർ കഴിഞ്ഞാൽ LocalStorage ക്ലിയർ ചെയ്യാം
+      localStorage.removeItem("fullOrderSummary");
+      localStorage.removeItem("totalOrderAmount");
+      window.open('thanks.html', '_self');
+  }).catch(error => {
+      alert("Submission failed. Please try again.");
+      btn.disabled = false;
+      btn.innerText = "Confirm Your Order";
+      console.error(error);
+  });
 });
 
 </script>
