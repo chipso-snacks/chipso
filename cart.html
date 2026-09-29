@@ -321,15 +321,24 @@ function saveAndReload() {
 }
 
 function goToOrder(){
-    if(cart.length === 0) {
+    if(!cart || cart.length === 0) {
         alert("Your cart is empty!");
         return;
     }
-    let summary = cart.map(item => `${item.name} (${item.qty}kg)`).join(", ");
-    let totalAmount = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+    
+    // പ്രൊഡക്റ്റുകളുടെ വിവരങ്ങൾ കൃത്യമായി ഒരു സ്ട്രിംഗ് ആക്കി മാറ്റുന്നു
+    let summary = cart.map(item => {
+        let quantity = item.qty || 1;
+        return `${item.name} x ${quantity}`;
+    }).join(", ");
 
+    let totalAmount = cart.reduce((sum, item) => sum + (Number(item.price) * Number(item.qty)), 0);
+
+    // LocalStorage-ലേക്ക് സേവ് ചെയ്യുന്നു
     localStorage.setItem("fullOrderSummary", summary);
     localStorage.setItem("totalOrderAmount", totalAmount);
+
+    // Order Page-ലേക്ക് റീഡയറക്ട് ചെയ്യുന്നു
     window.location.href = "orderchipso.html";
 }
 
