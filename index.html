@@ -15,90 +15,60 @@
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Outfit:wght@300;400;600;800&family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-dark: #0d0e12;
-            --card-bg: rgba(22, 24, 33, 0.75);
-            --card-border: rgba(255, 255, 255, 0.08);
-            --text-main: #f5f6fa;
-            --text-sub: #a0a5b5;
+            --bg-light: #fffdfa;
+            --bg-secondary: #fff7ed;
+            --card-bg: #ffffff;
+            --card-border: rgba(249, 115, 22, 0.25);
+            --text-main: #1f2937;
+            --text-sub: #334155;
             
-            /* Multi-color accents matched with Logo */
-            --accent-blue: #00a2ff;
-            --accent-green: #2ed573;
-            --accent-yellow: #ffa502;
-            --accent-red: #ff4757;
+            --primary-orange: #ea580c;
+            --primary-yellow: #eab308;
+            --dark-heading: #0f172a;
             
-            --btn-gradient: linear-gradient(135deg, #ffa502 0%, #ff4757 100%);
-            --btn-hover: linear-gradient(135deg, #ffb833 0%, #ff6b81 100%);
-            --glow-shadow: 0 10px 30px rgba(255, 71, 87, 0.25);
+            /* Dark Slate & Cyan Colors */
+            --slate-bg: #0b132b;
+            --slate-card: #1c2541;
+            --cyan-accent: #38bdf8;
+            --cyan-glow: rgba(56, 189, 248, 0.35);
+            
+            --nav-contact-bg: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            --btn-gradient: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%);
+            --glow-shadow: 0 10px 25px rgba(234, 88, 12, 0.25);
         }
+
+        html { scroll-behavior: smooth; }
 
         body { 
             font-family: 'Outfit', 'Poppins', sans-serif; 
             margin: 0; 
             color: var(--text-main);
-            background-color: var(--bg-dark);
+            background-color: var(--bg-light);
             line-height: 1.6;
             overflow-x: hidden;
             position: relative;
         }
 
-        /* Vibrant background glow blurs matched with Logo colors */
-        body::before {
-            content: '';
-            position: absolute;
-            top: 5%;
-            left: -10%;
-            width: 450px;
-            height: 450px;
-            background: var(--accent-blue);
-            filter: blur(180px);
-            opacity: 0.18;
-            z-index: -1;
-            border-radius: 50%;
-        }
-
-        body::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            right: -10%;
-            width: 500px;
-            height: 500px;
-            background: var(--accent-red);
-            filter: blur(200px);
-            opacity: 0.15;
-            z-index: -1;
-            border-radius: 50%;
-        }
-
-        /* --- BLUR EFFECT FOR MAIN CONTENT --- */
         #main-content {
             filter: blur(8px);
-            transition: filter 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: filter 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         /* --- SPLASH SCREEN STYLES --- */
         #splash-screen {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(13, 14, 18, 0.85); 
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(255, 253, 250, 0.95); 
             backdrop-filter: blur(20px);
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            display: flex; justify-content: center; align-items: center;
             z-index: 9999;
-            transition: opacity 0.6s ease, visibility 0.6s ease;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
         }
 
         .splash-logo {
-            width: 280px;
-            height: auto;
-            border-radius: 50%;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-            animation: popIn 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            width: 260px; height: auto; border-radius: 50%;
+            box-shadow: 0 15px 40px rgba(249, 115, 22, 0.25);
+            animation: popIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
         }
 
         @keyframes popIn {
@@ -107,327 +77,392 @@
             100% { transform: scale(1); opacity: 1; }
         }
 
-        .splash-hidden {
-            opacity: 0;
-            visibility: hidden;
-        }
+        .splash-hidden { opacity: 0; visibility: hidden; }
 
-        /* --- GLASSMORPHISM HEADER --- */
+        /* --- HEADER --- */
         header { 
-            background: rgba(22, 24, 33, 0.4);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            border-bottom: 1px solid var(--card-border);
-            padding: 60px 20px; 
+            background: linear-gradient(180deg, #fffbeb 0%, #fff7ed 100%);
+            padding: 50px 20px 40px 20px; 
             text-align: center;
             position: relative;
+            border-bottom: 2px solid var(--card-border);
         }
 
-        /* --- 3D BUBBLE LOGO TEXT --- */
         .chipso-title {
             font-family: 'Fredoka', sans-serif;
-            font-size: 6.5rem;
-            font-weight: 700;
-            margin: 0;
-            letter-spacing: -2px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            line-height: 1;
+            font-size: 6.2rem; font-weight: 700; margin: 0;
+            display: flex; justify-content: center; align-items: center; line-height: 1;
+            filter: drop-shadow(2px 6px 12px rgba(249, 115, 22, 0.2));
         }
 
         .chipso-title span {
             display: inline-block;
-            position: relative;
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: drop-shadow(2px 6px 8px rgba(0, 0, 0, 0.5))
-                    drop-shadow(-1px -2px 2px rgba(255, 255, 255, 0.8));
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            padding: 0 2px;
+            background-clip: text; -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent; padding: 0 2px;
         }
 
-        .chipso-title span:hover {
-            transform: translateY(-8px) scale(1.08);
-        }
-
-        /* Logo Gradient Colors */
-        .c-c { background: linear-gradient(180deg, #0d82df 0%, #00a2ff 60%, #005bc5 100%); }
-        .c-h { background: linear-gradient(180deg, #00bdf1 0%, #00d2ff 50%, #0093e0 100%); }
-        .c-i { background: linear-gradient(180deg, #00d3b7 0%, #00c9a7 50%, #00876c 100%); }
-        .c-p { background: linear-gradient(180deg, #64dd17 0%, #76ff03 50%, #388e3c 100%); }
-        .c-s { background: linear-gradient(180deg, #ffca28 0%, #ffa000 50%, #f57c00 100%); }
-        .c-o { background: linear-gradient(180deg, #ff5252 0%, #ff1744 50%, #b71c1c 100%); }
+        .c-c { background: linear-gradient(180deg, #0099ff 0%, #0077ff 100%); }
+        .c-h { background: linear-gradient(180deg, #00c6ff 0%, #0088ff 100%); }
+        .c-i { background: linear-gradient(180deg, #00e5a3 0%, #00a86b 100%); }
+        .c-p { background: linear-gradient(180deg, #55e010 0%, #22aa00 100%); }
+        .c-s { background: linear-gradient(180deg, #ffaa00 0%, #ff7700 100%); }
+        .c-o { background: linear-gradient(180deg, #ff2244 0%, #d50022 100%); }
 
         header h2 {
-            margin: 8px 0 15px 0;
-            color: #ffffff;
-            font-size: 2.2rem;
-            text-transform: lowercase;
-            font-weight: 400;
-            letter-spacing: 3px;
+            margin: 10px 0; color: var(--dark-heading);
+            font-size: 2.1rem; text-transform: lowercase; font-weight: 700; letter-spacing: 4px;
         }
         
         header p {
-            font-weight: 400;
-            font-size: 1.2rem;
-            color: var(--text-sub);
-            max-width: 600px;
-            margin: 0 auto;
+            font-weight: 700; font-size: 1.25rem; color: #c2410c; max-width: 600px; margin: 0 auto;
         }
 
-        /* --- STICKY NAV --- */
+        /* --- NAV PANEL --- */
         nav { 
-            display: flex; 
-            justify-content: center; 
-            background: rgba(13, 14, 18, 0.85); 
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            display: flex; justify-content: center; align-items: center;
+            background: var(--nav-contact-bg); backdrop-filter: blur(15px);
+            position: sticky; top: 0; z-index: 1000;
+            border-bottom: 2px solid var(--primary-orange);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            width: 100%; overflow-x: auto; white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+            padding: 2px 0;
+        }
+
+        nav::-webkit-scrollbar { display: none; }
+
+        nav a { 
+            color: #ffffff; padding: 14px 18px; text-decoration: none; 
+            text-transform: uppercase; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.5px;
+            flex-shrink: 0;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover { color: #fbbf24; background: rgba(255, 255, 255, 0.08); }
+
+        /* --- HOME HERO SECTION --- */
+        .hero-section {
+            text-align: center; padding: 60px 20px;
+            background: linear-gradient(180deg, #fff7ed 0%, #ffedd5 100%);
             border-bottom: 1px solid var(--card-border);
         }
 
-        nav a { 
-            color: var(--text-main); 
-            padding: 18px 30px; 
-            text-decoration: none; 
-            text-transform: uppercase; 
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 1.5px;
-            transition: all 0.3s ease;
+        .hero-section h2 { 
+            font-size: 2.4rem; color: #0f172a; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.5px;
         }
 
-        nav a:hover {
-            color: var(--accent-yellow);
-            background: rgba(255,255,255,0.03);
+        .hero-section p { 
+            font-size: 1.2rem; color: #1e293b; font-weight: 600; max-width: 680px; margin: 0 auto 30px auto; line-height: 1.7;
         }
+
+        .hero-btn {
+            background: var(--btn-gradient); color: #fff; padding: 15px 38px;
+            text-decoration: none; font-weight: 800; font-size: 1.05rem; border-radius: 50px;
+            box-shadow: var(--glow-shadow); display: inline-block; text-transform: uppercase;
+        }
+
+        /* --- FEATURES / HIGHLIGHTS SECTION --- */
+        .features-section {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px;
+            max-width: 1200px; margin: 40px auto; padding: 0 24px;
+        }
+
+        .feature-box {
+            background: #ffffff; border: 2px solid rgba(249, 115, 22, 0.2);
+            border-radius: 20px; padding: 25px; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+        }
+
+        .feature-box h4 { margin: 10px 0 5px 0; font-size: 1.2rem; color: var(--dark-heading); font-weight: 700; }
+        .feature-box p { margin: 0; font-size: 0.95rem; color: #475569; font-weight: 500; }
 
         /* --- PRODUCTS SECTION --- */
-        .products { 
-            padding: 80px 24px; 
-            max-width: 1300px; 
-            margin: 0 auto; 
-        }
-        
-        .product-container { 
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
-        }
+        .products { padding: 40px 24px 60px 24px; max-width: 1300px; margin: 0 auto; }
+        .section-title { text-align: center; font-size: 2rem; font-weight: 800; color: var(--dark-heading); margin-bottom: 30px; text-transform: uppercase; }
+        .product-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
 
-        /* Dark Premium Cards */
         .product-card { 
-            border: 1px solid var(--card-border);
-            border-radius: 24px; 
-            padding: 24px; 
-            background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            text-align: center;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
-            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.4s ease;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            border: 2px solid rgba(249, 115, 22, 0.22); border-radius: 24px; padding: 20px; 
+            background: var(--card-bg); text-align: center; box-shadow: 0 10px 25px rgba(245, 158, 11, 0.12);
+            display: flex; flex-direction: column; justify-content: space-between;
         }
 
-        .product-card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(255, 165, 2, 0.4);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-        }
+        .product-img { width: 100%; height: 260px; border-radius: 18px; overflow: hidden; margin-bottom: 16px; background: #fff7ed; }
+        .product-img img { width: 100%; height: 100%; object-fit: cover; }
+        .product-card h3 { font-size: 1.4rem; margin: 5px 0; font-weight: 700; color: var(--dark-heading); }
+        .product-card .price { font-size: 1.2rem; font-weight: 800; color: var(--primary-orange); margin: 0 0 15px 0; }
 
-        .product-img {
-            width: 100%;
-            height: 280px;
-            border-radius: 16px;
-            overflow: hidden;
-            margin-bottom: 20px;
-            position: relative;
-        }
-
-        .product-img img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; 
-            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-        }
-
-        .product-card:hover .product-img img {
-            transform: scale(1.06);
-        }
-
-        .product-card h3 {
-            font-size: 1.4rem;
-            margin: 10px 0 5px 0;
-            font-weight: 700;
-            color: #fff;
-        }
-
-        .product-card .price {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--accent-yellow);
-            margin: 0 0 15px 0;
-        }
-
-        /* Controls */
         .qty-controls {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 18px;
-            margin-bottom: 20px;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 8px 16px;
-            border-radius: 50px;
-            width: fit-content;
-            margin-left: auto;
-            margin-right: auto;
-            border: 1px solid var(--card-border);
+            display: flex; justify-content: center; align-items: center; gap: 15px; margin-bottom: 15px;
+            background: #fff7ed; padding: 6px 14px; border-radius: 50px; width: fit-content;
+            margin-left: auto; margin-right: auto; border: 1px solid rgba(249, 115, 22, 0.25);
         }
 
-        .qty-btn {
-            background: rgba(255, 255, 255, 0.1);
-            border: none;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s ease;
-            color: white;
-        }
+        .qty-btn { background: #ffffff; border: 1px solid rgba(249, 115, 22, 0.35); width: 30px; height: 30px; border-radius: 50%; cursor: pointer; font-weight: bold; color: var(--primary-orange); }
 
-        .qty-btn:hover {
-            background: var(--accent-red);
-            color: white;
-        }
-
-        .qty-controls span {
-            font-weight: 700;
-            font-size: 1.05rem;
-            min-width: 25px;
-            color: #fff;
-        }
-
-        /* Gradient Glow Buttons */
         .order-btn { 
-            background: var(--btn-gradient); 
-            color: #fff; 
-            padding: 15px 30px; 
-            text-decoration: none; 
-            font-weight: 700; 
-            font-size: 0.95rem;
-            border-radius: 50px; 
-            border: none;
-            cursor: pointer;
-            width: 100%;
-            box-shadow: var(--glow-shadow);
-            transition: all 0.3s ease;
-            letter-spacing: 0.5px;
+            background: linear-gradient(135deg, #ff8c00 0%, #ff4500 100%); color: #fff; padding: 14px 20px; text-decoration: none; 
+            font-weight: 800; font-size: 1rem; border-radius: 50px; border: none; cursor: pointer; width: 100%; 
+            box-shadow: 0 4px 15px rgba(255, 69, 0, 0.3); transition: transform 0.2s ease;
         }
 
-        .order-btn:hover { 
-            background: var(--btn-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 12px 30px rgba(255, 71, 87, 0.4);
+        .order-btn:hover { transform: scale(1.02); }
+
+        /* MAIN BIG "PLACE YOUR ORDER" BUTTON LIKE IMAGE */
+        .main-place-order-wrapper {
+            text-align: center; margin: 40px 0 20px 0;
         }
 
-        /* --- PLACE ORDER CONTAINER --- */
-        .place-order-wrapper {
-            text-align: center;
-            margin: 70px 0 30px 0; 
-        }
-
-        .order-now-btn {
-            background: var(--btn-gradient); 
-            color: #fff;
-            padding: 20px 60px;
-            font-size: 1.3rem;
+        .main-place-order-btn {
+            background: linear-gradient(135deg, #ff8a00 0%, #e52e71 100%, #ff5400 100%);
+            background: linear-gradient(90deg, #ff9100, #ff3c00);
+            color: #ffffff;
+            font-size: 1.2rem;
             font-weight: 800;
-            text-decoration: none;
-            text-transform: uppercase;
-            border-radius: 50px; 
-            box-shadow: var(--glow-shadow);
-            transition: all 0.4s ease;
-            display: inline-block;
+            padding: 18px 45px;
+            border-radius: 50px;
             border: none;
             cursor: pointer;
+            box-shadow: 0 10px 30px rgba(255, 60, 0, 0.4);
+            text-transform: uppercase;
             letter-spacing: 1px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            transition: all 0.3s ease;
         }
 
-        .order-now-btn:hover {
-            transform: translateY(-5px); 
-            box-shadow: 0 15px 40px rgba(255, 71, 87, 0.5);
+        .main-place-order-btn:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 15px 35px rgba(255, 60, 0, 0.6);
         }
 
-        /* --- CONTACT SECTION --- */
-        .contact-section { 
-            background: #090a0d; 
-            color: white; 
-            padding: 80px 24px; 
-            text-align: center; 
-            border-top: 1px solid var(--card-border);
+        /* --- SLIDING REVIEWS --- */
+        .reviews-section { padding: 60px 20px; background: #fff7ed; border-top: 1px solid var(--card-border); border-bottom: 1px solid var(--card-border); text-align: center; }
+        .review-slider-container { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 20px 10px; max-width: 1200px; margin: 0 auto; -webkit-overflow-scrolling: touch; }
+        .review-slider-container::-webkit-scrollbar { height: 6px; }
+        .review-slider-container::-webkit-scrollbar-thumb { background: var(--primary-orange); border-radius: 10px; }
+        .review-card { flex: 0 0 300px; scroll-snap-align: center; background: #ffffff; padding: 22px; border-radius: 20px; border: 2px solid rgba(249, 115, 22, 0.2); box-shadow: 0 4px 15px rgba(0,0,0,0.04); text-align: left; }
+        .stars { color: #f59e0b; margin-bottom: 8px; font-size: 1.1rem; }
+
+        /* --- AI CHATBOT SYSTEM --- */
+        .ai-chat-btn {
+            position: fixed; bottom: 25px; right: 25px;
+            background: linear-gradient(135deg, #0b132b 0%, #1c2541 100%);
+            color: #ffffff; border-radius: 50px; padding: 12px 22px; font-weight: 700;
+            border: 1px solid var(--cyan-accent); cursor: pointer;
+            box-shadow: 0 8px 25px var(--cyan-glow);
+            display: flex; align-items: center; gap: 10px; z-index: 1001; font-size: 0.95rem;
+            transition: all 0.3s ease;
         }
 
-        .contact-section h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 30px;
-            letter-spacing: -0.5px;
+        .ai-chat-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(56, 189, 248, 0.5);
         }
 
-        .contact-section p {
+        .ai-chat-window {
+            position: fixed; bottom: 85px; right: 25px;
+            width: 380px; max-width: 92vw; height: 540px;
+            background: var(--slate-bg); border-radius: 24px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(56, 189, 248, 0.3); z-index: 1002;
+            display: none; flex-direction: column; overflow: hidden;
+            backdrop-filter: blur(10px);
+            animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .chat-header {
+            background: linear-gradient(135deg, #1c2541 0%, #0b132b 100%);
+            color: white; padding: 16px 20px;
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .bot-avatar {
+            width: 32px; height: 32px; background: rgba(56, 189, 248, 0.15);
+            border: 1px solid var(--cyan-accent); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
             font-size: 1.1rem;
-            color: var(--text-sub);
-            margin: 12px 0;
         }
 
-        /* --- RESPONSIVE STYLES --- */
-        @media (max-width: 768px) {
-            header { padding: 45px 16px; }
-            .chipso-title { font-size: 4.8rem; }
-            header h2 { font-size: 1.8rem; }
-            .products { padding: 40px 16px; }
-            .product-container { gap: 20px; }
+        .chat-body {
+            flex: 1; padding: 16px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px;
+            background: #0b132b; scroll-behavior: smooth;
         }
 
+        .chat-body::-webkit-scrollbar { width: 5px; }
+        .chat-body::-webkit-scrollbar-thumb { background: #1c2541; border-radius: 10px; }
+
+        .msg-bubble {
+            max-width: 85%; padding: 12px 16px; border-radius: 18px; font-size: 0.88rem; line-height: 1.5; word-wrap: break-word;
+        }
+
+        .msg-bot {
+            align-self: flex-start; background: #1c2541; color: #f8fafc;
+            border-bottom-left-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .msg-user {
+            align-self: flex-end; background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
+            color: #ffffff; border-bottom-right-radius: 4px; font-weight: 600;
+            box-shadow: 0 4px 15px var(--cyan-glow);
+        }
+
+        /* FIXED OVERLAY POPUP */
+        .slate-questions-popup {
+            position: absolute;
+            bottom: 70px;
+            left: 12px; right: 12px;
+            background: #1c2541; border: 1px solid rgba(56, 189, 248, 0.5);
+            border-radius: 16px; padding: 12px; display: none; flex-direction: column; gap: 8px;
+            max-height: 250px; overflow-y: auto;
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.6);
+            z-index: 1005;
+            animation: fadeIn 0.2s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .slate-q-btn {
+            background: rgba(11, 19, 43, 0.9);
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            color: #e2e8f0; padding: 10px 14px; border-radius: 10px;
+            font-size: 0.82rem; font-weight: 500; text-align: left; cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .slate-q-btn:hover {
+            background: var(--cyan-accent); color: #0b132b; font-weight: 700;
+            border-color: var(--cyan-accent); transform: translateX(3px);
+        }
+
+        /* INPUT AREA */
+        .chat-input-area {
+            padding: 14px 16px; background: #1c2541;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex; gap: 10px; align-items: center; position: relative;
+        }
+
+        .chat-input-field {
+            flex: 1; background: #0b132b; border: 1px solid rgba(56, 189, 248, 0.3);
+            color: #ffffff; padding: 12px 18px; border-radius: 25px; font-size: 0.88rem; outline: none;
+            cursor: pointer; transition: border-color 0.3s ease;
+        }
+
+        .chat-input-field:hover { border-color: var(--cyan-accent); }
+
+        .chat-send-btn {
+            background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
+            border: none; color: #ffffff; width: 42px; height: 42px;
+            border-radius: 50%; font-weight: bold; cursor: pointer; display: flex;
+            align-items: center; justify-content: center; font-size: 1.1rem;
+            box-shadow: 0 4px 12px var(--cyan-glow);
+        }
+
+        /* CONTACT SECTION WITH LOCATION BUTTON */
+        .contact-section { 
+            background: var(--nav-contact-bg); color: #ffffff; padding: 60px 24px; text-align: center; 
+            border-top: 3px solid var(--primary-orange);
+        }
+
+        .location-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
+            color: #ffffff;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 700;
+            text-decoration: none;
+            margin-top: 15px;
+            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+            transition: transform 0.2s;
+        }
+
+        .location-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* MEDIA / MOBILE RESPONSIVE FIXES FOR CHAT HEIGHT */
         @media (max-width: 600px) {
-            .chipso-title { font-size: 3.5rem; }
-            header h2 { font-size: 1.4rem; }
-            .splash-logo { width: 220px; }
-            
-            .products { padding: 25px 12px; }
+            .chipso-title { font-size: 3.2rem; }
+            nav { justify-content: space-around; padding: 4px 5px; }
+            nav a { padding: 12px 10px; font-size: 0.76rem; letter-spacing: 0px; }
             .product-container { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .product-card { padding: 12px 8px; }
+            .product-img { height: 170px; }
+            .hero-section h2 { font-size: 1.8rem; }
+            .hero-section p { font-size: 1.05rem; }
             
-            .product-card { padding: 12px; border-radius: 18px; }
-            .product-card h3 { font-size: 1.05rem; margin: 8px 0 4px 0; }
-            .product-card .price { font-size: 0.95rem; margin-bottom: 10px; }
-            
-            .product-img { height: 160px; margin-bottom: 12px; border-radius: 12px; }
-            
-            .qty-controls { gap: 10px; margin-bottom: 12px; padding: 4px 10px; }
-            .qty-btn { width: 26px; height: 26px; font-size: 0.8rem; }
-            .qty-controls span { font-size: 0.95rem; }
-            
-            .order-btn { padding: 10px 15px; font-size: 0.85rem; border-radius: 30px; }
-            .order-now-btn { padding: 16px 40px; font-size: 1.1rem; }
+            /* INCREASED CHAT HEIGHT & RESPONSIVENESS ON MEDIA / MOBILE */
+            .ai-chat-btn { bottom: 15px; right: 15px; padding: 12px 20px; font-size: 0.9rem; }
+            .ai-chat-window { 
+                right: 10px; left: 10px; width: auto; max-width: 100vw; 
+                bottom: 70px; height: 82vh; max-height: 580px; 
+            }
         }
     </style>
 </head>
 <body>
+
     <!-- Splash Screen Layer -->
     <div id="splash-screen">
         <img src="logo1.png" alt="Chipso Snaxx Logo" class="splash-logo">
+    </div>
+
+    <!-- AI Chat Floating Button -->
+    <button class="ai-chat-btn" onclick="toggleAIChat()">
+        <span class="bot-avatar">🤖</span>
+        <span>Chipso AI</span>
+    </button>
+
+    <!-- AI SLATE BLUE CHAT WINDOW -->
+    <div class="ai-chat-window" id="aiChatWindow">
+        <div class="chat-header">
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <div class="bot-avatar">🤖</div>
+                <div>
+                    <div style="font-size: 0.95rem; font-weight: 700; color: #ffffff;">Chipso Assistant</div>
+                    <div style="font-size: 0.72rem; color: #22c55e; font-weight: 600;">● Online</div>
+                </div>
+            </div>
+            <span style="cursor: pointer; font-size: 1.2rem; color: #94a3b8;" onclick="toggleAIChat()">✕</span>
+        </div>
+
+        <div class="chat-body" id="chatBody">
+            <div class="msg-bubble msg-bot">
+                ഹലോ! 👋 Chipso AI-യിലേക്ക് സ്വാഗതം. ചോദ്യങ്ങൾ കാണാൻ താഴെ കാണുന്ന Input Bar-ൽ Tap ചെയ്യൂ:
+            </div>
+        </div>
+
+        <!-- Fixed Overlay Popup Box -->
+        <div class="slate-questions-popup" id="questionsPopup">
+            <div style="font-size:0.75rem; color:#38bdf8; font-weight:bold; margin-bottom:4px;">ക്ലിക്ക് ചെയ്ത് ചോദ്യങ്ങൾ തിരഞ്ഞെടുക്കൂ:</div>
+            <button class="slate-q-btn" onclick="sendDirectQuestion('min', '📦 മിനിമം എത്ര കിലോ ഓർഡർ ചെയ്യണം?')">📦 മിനിമം എത്ര കിലോ ഓർഡർ ചെയ്യണം?</button>
+            <button class="slate-q-btn" onclick="sendDirectQuestion('wholesale', '🏪 കടകളിലേക്ക് Wholesale ആയി ലഭിക്കുമോ?')">🏪 കടകളിലേക്ക് Wholesale ആയി ലഭിക്കുമോ?</button>
+            <button class="slate-q-btn" onclick="sendDirectQuestion('oil', '🥥 ഏത് എണ്ണയിലാണ് വറുത്തെടുക്കുന്നത്?')">🥥 ഏത് എണ്ണയിലാണ് വറുത്തെടുക്കുന്നത്?</button>
+            <button class="slate-q-btn" onclick="sendDirectQuestion('time', '🚚 ഡെലിവറി സമയം എത്രയാണ്?')">🚚 ഡെലിവറി സമയം എത്രയാണ്?</button>
+            <button class="slate-q-btn" onclick="sendDirectQuestion('custompack', '🛍️ കടകളിലേക്ക് സ്വന്തമായി പാക്ക് ചെയ്ത് വിൽക്കാൻ പറ്റുമോ?')">🛍️ സ്വന്തമായി പാക്ക് ചെയ്ത് വിൽക്കാൻ പറ്റുമോ?</button>
+            <button class="slate-q-btn" onclick="sendDirectQuestion('expiry', '⏳ സ്നാക്കുകൾ എത്ര നാൾ കേടാവാതിരിക്കും?')">⏳ സ്നാക്കുകൾ എത്ര നാൾ കേടാവാതിരിക്കും?</button>
+            <button class="slate-q-btn" onclick="sendDirectQuestion('quality', '⭐ ക്വാളിറ്റി ഗ്യാരണ്ടി ഉണ്ടോ?')">⭐ ക്വാളിറ്റി ഗ്യാരണ്ടി ഉണ്ടോ?</button>
+        </div>
+
+        <!-- Slate Blue Input Field Area -->
+        <div class="chat-input-area">
+            <input type="text" class="chat-input-field" id="chatInputField" placeholder="Tap to select question..." onclick="toggleQuestionsPopup()" readonly>
+            <button class="chat-send-btn" onclick="toggleQuestionsPopup()">💬</button>
+        </div>
     </div>
 
     <!-- Main Website Content -->
@@ -441,20 +476,48 @@
         </header>
 
         <nav>
+            <a href="#home">Home</a>
             <a href="#products">Products</a>
+            <a href="#reviews">Reviews</a>
             <a href="#contact">Contact</a>
             <a href="cart.html">Cart 🛒</a>
         </nav>
 
+        <!-- HERO SECTION -->
+        <section class="hero-section" id="home">
+            <h2>Fresh & Crunchy Kerala Snacks</h2>
+            <p>കോട്ടയത്തിന്റെ സ്വന്തം രുചിയിൽ, കലർപ്പില്ലാത്ത ശുദ്ധമായ വെളിച്ചെണ്ണയിൽ തയ്യാറാക്കിയ മികച്ച സ്നാക്കുകൾ നിങ്ങളുടെ വീട്ടിലേക്ക്!</p>
+            <a href="#products" class="hero-btn">Explore Products 🛒</a>
+        </section>
+
+        <!-- FEATURES / HIGHLIGHTS SECTION -->
+        <section class="features-section">
+            <div class="feature-box">
+                <span style="font-size: 2rem;">🍌</span>
+                <h4>100% Quality</h4>
+                <p>Made with premium ingredients and pure coconut oil</p>
+            </div>
+            <div class="feature-box">
+                <span style="font-size: 2rem;">🚚</span>
+                <h4>Fast Delivery</h4>
+                <p>Direct doorstep shipping across Kerala</p>
+            </div>
+            <div class="feature-box">
+                <span style="font-size: 2rem;">✨</span>
+                <h4>Fresh & Crispy</h4>
+                <p>Freshly packed for long-lasting taste</p>
+            </div>
+        </section>
+
+        <!-- ALL PRODUCTS SECTION -->
         <section class="products" id="products">
+            <h2 class="section-title">Our Menu</h2>
             <div class="product-container">
 
                 <!-- Product 1: Murukku -->
                 <div class="product-card">
                     <div>
-                        <div class="product-img">
-                            <img src="https://i.ibb.co/RpFxkTZK/69c9fb98-c69a-4354-bb20-78a7ab9bccf1-r1-c1.jpg" alt="Murukku">
-                        </div>
+                        <div class="product-img"><img src="https://i.ibb.co/RpFxkTZK/69c9fb98-c69a-4354-bb20-78a7ab9bccf1-r1-c1.jpg" alt="Murukku"></div>
                         <h3>Murukku</h3>
                         <p class="price">₹150/kg</p>
                     </div>
@@ -464,16 +527,14 @@
                             <span id="qty-Murukku">5</span>
                             <button class="qty-btn" onclick="changeQty('Murukku', 1)">+</button>
                         </div>
-                       <button onclick="addToCart('Murukku',150,'Murukku','https://i.ibb.co/RpFxkTZK/69c9fb98-c69a-4354-bb20-78a7ab9bccf1-r1-c1.jpg')" class="order-btn">Add to Cart</button>
+                        <button onclick="addToCart('Murukku',150,'Murukku','https://i.ibb.co/RpFxkTZK/69c9fb98-c69a-4354-bb20-78a7ab9bccf1-r1-c1.jpg')" class="order-btn">Add to Cart</button>
                     </div>
                 </div>
 
                 <!-- Product 2: Banana Chips -->
                 <div class="product-card">
                     <div>
-                        <div class="product-img">
-                            <img src="https://i.ibb.co/Zp47rMKM/69c9fb98-c69a-4354-bb20-78a7ab9bccf1-r1-c2.jpg" alt="Banana Chips">
-                        </div>
+                        <div class="product-img"><img src="https://i.ibb.co/Zp47rMKM/69c9fb98-c69a-4354-bb20-78a7ab9bccf1-r1-c2.jpg" alt="Banana Chips"></div>
                         <h3>Banana Chips</h3>
                         <p class="price">₹150/kg</p>
                     </div>
@@ -483,16 +544,14 @@
                             <span id="qty-BananaChips">5</span>
                             <button class="qty-btn" onclick="changeQty('BananaChips', 1)">+</button>
                         </div>
-                       <button onclick="addToCart('Banana Chips',150,'BananaChips','https://i.ibb.co/Zp47rMKM/69c9fb98-c69a-4354-bb20-78a7ab9bccf1-r1-c2.jpg')" class="order-btn">Add to Cart</button>
+                        <button onclick="addToCart('Banana Chips',150,'BananaChips','https://i.ibb.co/Zp47rMKM/69c9fb98-c69a-4354-bb20-78a7ab9bccf1-r1-c2.jpg')" class="order-btn">Add to Cart</button>
                     </div>
                 </div>
 
                 <!-- Product 3: Joystick -->
                 <div class="product-card">
                     <div>
-                        <div class="product-img">
-                            <img src="https://i.ibb.co/ycx85w7Y/5f710085-b22f-4622-b498-50ab6c53aa5a.jpg" alt="Joystick">
-                        </div>
+                        <div class="product-img"><img src="https://i.ibb.co/ycx85w7Y/5f710085-b22f-4622-b498-50ab6c53aa5a.jpg" alt="Joystick"></div>
                         <h3>Joystick</h3>
                         <p class="price">₹150/kg</p>
                     </div>
@@ -509,9 +568,7 @@
                 <!-- Product 4: Tapioca Chips -->
                 <div class="product-card">
                     <div>
-                        <div class="product-img">
-                            <img src="https://i.ibb.co/PsDT9sby/69c9fb98-c69a-4354-bb20-78a7ab9bccf1-r1-c3.jpg" alt="Tapioca Chips">
-                        </div>
+                        <div class="product-img"><img src="https://i.ibb.co/PsDT9sby/69c9fb98-c69a-4354-bb20-78a7ab9bccf1-r1-c3.jpg" alt="Tapioca Chips"></div>
                         <h3>Tapioca Chips</h3>
                         <p class="price">₹150/kg</p>
                     </div>
@@ -525,12 +582,10 @@
                     </div>
                 </div>
 
-                 <!-- Special Murukku -->
+                <!-- Product 5: Special Murukku -->
                 <div class="product-card">
                     <div>
-                        <div class="product-img">
-                            <img src="https://i.ibb.co/VWQDkyXZ/7106bb05-ef96-4edb-9aa8-68aa5beeacda.jpg" alt="Special Murukku">
-                        </div>
+                        <div class="product-img"><img src="https://i.ibb.co/VWQDkyXZ/7106bb05-ef96-4edb-9aa8-68aa5beeacda.jpg" alt="Special Murukku"></div>
                         <h3>Special Murukku</h3>
                         <p class="price">₹150/kg</p>
                     </div>
@@ -544,12 +599,10 @@
                     </div>
                 </div>
 
-                <!-- Cheese Balls -->
+                <!-- Product 6: Cheese Balls -->
                 <div class="product-card">
                     <div>
-                        <div class="product-img">
-                            <img src="https://i.ibb.co/5X3VD5xB/69c9fb98-c69a-4354-bb20-78a7ab9bccf1-r2-c2.jpg" alt="Cheese Balls">
-                        </div>
+                        <div class="product-img"><img src="https://i.ibb.co/5X3VD5xB/69c9fb98-c69a-4354-bb20-78a7ab9bccf1-r2-c2.jpg" alt="Cheese Balls"></div>
                         <h3>Cheese Balls</h3>
                         <p class="price">₹150/kg</p>
                     </div>
@@ -559,16 +612,40 @@
                             <span id="qty-CheeseBalls">5</span>
                             <button class="qty-btn" onclick="changeQty('CheeseBalls', 1)">+</button>
                         </div>
-                       <button onclick="addToCart('Cheese Balls',150,'CheeseBalls','https://i.ibb.co/5X3VD5xB/69c9fb98-c69a-4354-bb20-78a7ab9bccf1-r2-c2.jpg')" class="order-btn">Add to Cart</button>
+                        <button onclick="addToCart('Cheese Balls',150,'CheeseBalls','https://i.ibb.co/5X3VD5xB/69c9fb98-c69a-4354-bb20-78a7ab9bccf1-r2-c2.jpg')" class="order-btn">Add to Cart</button>
                     </div>
                 </div>
 
             </div>
 
-            <div class="place-order-wrapper">
-                <a href="cart.html" class="order-now-btn">
-                    Place Your Order 🛒
+            <!-- MAIN BIG "PLACE YOUR ORDER" BUTTON (EXACTLY AS REQUESTED IN IMAGE) -->
+            <div class="main-place-order-wrapper">
+                <a href="cart.html" class="main-place-order-btn">
+                    PLACE YOUR ORDER 🛒
                 </a>
+            </div>
+        </section>
+
+        <section class="reviews-section" id="reviews">
+            <h2 class="section-title" style="margin-bottom: 5px;">Customer Reviews</h2>
+            <p style="color: var(--text-sub); margin-bottom: 20px;">👈 Side-ലേക്ക് Swipe ചെയ്ത് Reviews വായിക്കൂ 👉</p>
+            
+            <div class="review-slider-container">
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Banana chips super crunchy ആണ്! നല്ല വെളിച്ചെണ്ണയുടെ മണം ഉണ്ട്."</p>
+                    <h4>- Anjali, Ernakulam</h4>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Murukku & Joystick ഓർഡർ ചെയ്തിരുന്നു. 2 ദിവസത്തിനുള്ളിൽ കിട്ടി!"</p>
+                    <h4>- Rahul, Kottayam</h4>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"5kg Wholesale പാക്കറ്റുകളായി ബിസിനസ്സിന് ലഭിച്ചു, Very fresh!"</p>
+                    <h4>- Sreejith, Alappuzha</h4>
+                </div>
             </div>
         </section>
 
@@ -578,23 +655,88 @@
                 <p>📞 +91 9744390615 | +91 9744390657</p>
                 <p>📧 shahid321bila@gmail.com</p>
                 <p>📍 Kottayam, Kerala</p>
+                <!-- LOCATION BUTTON ADDED -->
+                <a href="https://maps.google.com/?q=Kottayam,Kerala" target="_blank" class="location-btn">
+                    📍 View Location on Map
+                </a>
             </div>
-            <a href="https://maps.app.goo.gl/CZnFcyiJfntQVXqbA" class="order-btn" target="_blank" style="background: rgba(255,255,255,0.1); color: #fff; max-width: 200px; margin: 20px auto 0 auto; display: block; border: 1px solid var(--card-border);">View Location</a>
         </section>
     </div>
 
 <script>
-// --- SPLASH SCREEN LOGIC ---
 window.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
         const splash = document.getElementById('splash-screen');
         splash.classList.add('splash-hidden');
-        
-        const mainContent = document.getElementById('main-content');
-        mainContent.style.filter = 'none';
-    }, 2500); 
+        document.getElementById('main-content').style.filter = 'none';
+    }, 1000); 
 });
-// Initial quantities load ചെയ്യുമ്പോൾ default ആയി 5 ആക്കുക
+
+/* Toggle AI Chatbot Window */
+function toggleAIChat() {
+    const chatWin = document.getElementById('aiChatWindow');
+    const isVisible = (chatWin.style.display === 'flex');
+    chatWin.style.display = isVisible ? 'none' : 'flex';
+    
+    if (isVisible) {
+        document.getElementById('questionsPopup').style.display = 'none';
+    }
+}
+
+/* Toggle Questions Popup Overlay */
+function toggleQuestionsPopup() {
+    const popup = document.getElementById('questionsPopup');
+    if (popup.style.display === 'flex') {
+        popup.style.display = 'none';
+    } else {
+        popup.style.display = 'flex';
+    }
+}
+
+/* Click Question -> Instant Send -> Auto Scroll & Hide Popup */
+function sendDirectQuestion(type, questionText) {
+    const chatBody = document.getElementById('chatBody');
+    const popup = document.getElementById('questionsPopup');
+    
+    popup.style.display = 'none';
+
+    // 1. Add User Question Bubble
+    const userMsg = document.createElement('div');
+    userMsg.className = 'msg-bubble msg-user';
+    userMsg.innerText = questionText;
+    chatBody.appendChild(userMsg);
+
+    chatBody.scrollTop = chatBody.scrollHeight;
+
+    // 2. Add AI Bot Response Bubble
+    setTimeout(() => {
+        let answerText = "";
+
+        if (type === 'min') {
+            answerText = "📦 **ഉത്തരം:** ഏതൊരു പ്രൊഡക്റ്റും മിനിമം 5 കിലോ വീതമാണ് ഓർഡർ ചെയ്യാൻ സാധിക്കുക.";
+        } else if (type === 'wholesale') {
+            answerText = "🏪 **ഉത്തരം:** തീർച്ചയായും! കടകൾക്കായി 5kg പാക്കറ്റുകളായി Wholesale നിരക്കിൽ ലഭിക്കും.";
+        } else if (type === 'oil') {
+            answerText = "🥥 **ഉത്തരം:** 100% ശുദ്ധമായ കേര വെളിച്ചെണ്ണയിലാണ് എല്ലാ സ്നാക്കുകളും വറുത്തെടുക്കുന്നത്.";
+        } else if (type === 'time') {
+            answerText = "🚚 **ഉത്തരം:** കേരളത്തിൽ എവിടെയും 2 മുതൽ 4 ദിവസത്തിനുള്ളിൽ ഡെലിവറി ലഭ്യമാണ്.";
+        } else if (type === 'custompack') {
+            answerText = "🛍️ **ഉത്തരം:** അതെ, കടക്കാർക്ക് 5kg ലൂസ്/ബൾക്ക് പാക്കറ്റുകൾ വാങ്ങി സ്വന്തം ബ്രാൻഡിലോ കവറിലോ പാക്ക് ചെയ്തു വിൽക്കാവുന്നതാണ്.";
+        } else if (type === 'expiry') {
+            answerText = "⏳ **ഉത്തരം:** പാക്കിംഗ് തുറക്കാതെ വച്ചാൽ 60 ദിവസത്തിൽ കൂടുതൽ ഫ്രഷ്‌നെസ്സും മൊരിവും നിലനിൽക്കും.";
+        } else if (type === 'quality') {
+            answerText = "⭐ **ഉത്തരം:** 100% ഗുണനിലവാരം ഉറപ്പ് നൽകുന്നു. ഫ്രഷ് ചേരുവകൾ ഉപയോഗിച്ച് മാത്രം ഉണ്ടാക്കുന്നവയാണ്.";
+        }
+
+        const botMsg = document.createElement('div');
+        botMsg.className = 'msg-bubble msg-bot';
+        botMsg.innerHTML = answerText + `<br><br>💬 <b>കൂടുതൽ അറിയാൻ direct WhatsApp ചെയ്യൂ:</b><br><a href="https://wa.me/919744390615?text=${encodeURIComponent('Hi Chipso Snaxx, I have a question: ' + questionText)}" target="_blank" style="color: #38bdf8; font-weight: bold; text-decoration: none; display: inline-block; margin-top: 5px;">📲 Contact us on WhatsApp</a>`;
+        
+        chatBody.appendChild(botMsg);
+        chatBody.scrollTop = chatBody.scrollHeight;
+    }, 300);
+}
+
 let itemQuantities = {};
 
 function changeQty(id, change) {
@@ -602,14 +744,11 @@ function changeQty(id, change) {
         let currentQtyText = document.getElementById('qty-' + id).innerText;
         itemQuantities[id] = parseInt(currentQtyText) || 5;
     }
-
     itemQuantities[id] += change;
-
     if (itemQuantities[id] < 5) {
         itemQuantities[id] = 5;
         alert("മിനിമം ഓർഡർ 5 കിലോ ആണ്!");
     }
-
     document.getElementById('qty-' + id).innerText = itemQuantities[id];
 }
 
@@ -618,33 +757,18 @@ function addToCart(name, price, id, img) {
     let qtyElement = document.getElementById('qty-' + id);
     let qty = qtyElement ? parseInt(qtyElement.innerText) : 5;
 
-    if (isNaN(qty) || qty < 5) {
-        alert("ക്ഷമിക്കണം, ഈ ഉൽപ്പന്നം മിനിമം 5 കിലോ എങ്കിലും ഓർഡർ ചെയ്യണം.");
-        return;
-    }
-
     let existingItem = cart.find(p => p.name === name);
-
     if (existingItem) {
         existingItem.qty += qty;
     } else {
-        cart.push({
-            name: name,
-            price: price,
-            qty: qty,
-            img: img 
-        });
+        cart.push({ name: name, price: price, qty: qty, img: img });
     }
 
     localStorage.setItem("cart", JSON.stringify(cart));
     alert(qty + " kg " + name + " കാർട്ടിലേക്ക് ചേർത്തു!");
-
-    // Reset back to 5 after adding
     if (qtyElement) qtyElement.innerText = "5";
     itemQuantities[id] = 5;
 }
-
-
 </script>   
 </body>
 </html>
